@@ -8,7 +8,7 @@
 		<version>3.2.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.devteria</groupId>
+	<groupId>com.haodk</groupId>
 	<artifactId>profile-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>profile-service</name>
@@ -40,6 +40,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-neo4j</artifactId>
 		</dependency>
 	</dependencies>
 
@@ -108,10 +112,10 @@
 				</executions>
 				<configuration>
 					<excludes>
-						<exclude>com/devteria/profile/dto/**</exclude>
-						<exclude>com/devteria/profile/entity/**</exclude>
-						<exclude>com/devteria/profile/mapper/**</exclude>
-						<exclude>com/devteria/profile/configuration/**</exclude>
+						<exclude>com/haodk/profile/dto/**</exclude>
+						<exclude>com/haodk/profile/entity/**</exclude>
+						<exclude>com/haodk/profile/mapper/**</exclude>
+						<exclude>com/haodk/profile/configuration/**</exclude>
 					</excludes>
 				</configuration>
 			</plugin>
