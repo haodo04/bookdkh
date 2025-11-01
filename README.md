@@ -1,2 +1,2 @@
 # bookdkh
-The bookteria project, a book social network
+The bookdkh project, a book social network
