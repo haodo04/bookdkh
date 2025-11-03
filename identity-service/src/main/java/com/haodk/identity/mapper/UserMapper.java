@@ -13,6 +13,7 @@ import com.haodk.identity.entity.User;
 public interface UserMapper {
     User toUser(UserCreationRequest request);
 
+    @Mapping(target = "username", source = "username")
     UserResponse toUserResponse(User user);
 
     @Mapping(target = "roles", ignore = true)

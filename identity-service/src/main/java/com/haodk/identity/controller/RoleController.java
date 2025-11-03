@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.*;
 
-import com.haodk.identity.dto.request.ApiResponse;
 import com.haodk.identity.dto.request.RoleRequest;
+import com.haodk.identity.dto.response.ApiResponse;
 import com.haodk.identity.dto.response.RoleResponse;
 import com.haodk.identity.service.RoleService;
 

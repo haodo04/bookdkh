@@ -1,10 +1,12 @@
 package com.haodk.identity.entity;
 
-import jakarta.persistence.*;
-import lombok.*;
-import lombok.experimental.FieldDefaults;
 import java.time.LocalDate;
 import java.util.Set;
+
+import jakarta.persistence.*;
+
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 @Getter
 @Setter
@@ -31,5 +33,4 @@ public class User {
 
     @ManyToMany
     Set<Role> roles;
-
 }
