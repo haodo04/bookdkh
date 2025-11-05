@@ -1,4 +1,4 @@
-package com.haodk.profile.dto.request;
+package com.haodk.profile.dto.response;
 
 import java.time.LocalDate;
 
@@ -10,10 +10,8 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class ProfileCreationRequest {
-    String id;
-    Long userId;
-    String password;
+public class UserProfileResponse {
+    Long id;
     String firstName;
     String lastName;
     LocalDate dob;

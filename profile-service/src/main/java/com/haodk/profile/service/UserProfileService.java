@@ -1,14 +1,18 @@
 package com.haodk.profile.service;
 
+import org.springframework.stereotype.Service;
+
 import com.haodk.profile.dto.request.ProfileCreationRequest;
 import com.haodk.profile.dto.response.UserProfileResponse;
 import com.haodk.profile.entity.UserProfile;
 import com.haodk.profile.mapper.UserProfileMapper;
 import com.haodk.profile.repository.UserProfileRepository;
+
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -23,9 +27,17 @@ public class UserProfileService {
         return userProfileMapper.toUserProfileResponse(userProfile);
     }
 
-    public UserProfileResponse getUserProfile(String id) {
-        UserProfile userProfile = userProfileRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Profile not found"));
+    public UserProfileResponse getUserProfile(Long userId) {
+        UserProfile userProfile =
+                userProfileRepository.findByUserId(userId).orElseThrow(() -> new RuntimeException("Profile not found"));
         return userProfileMapper.toUserProfileResponse(userProfile);
+    }
+
+    public List<UserProfile> getAllUserProfile() {
+        return userProfileRepository.findAll();
+    }
+
+    public void deleteProfile(Long userId) {
+        userProfileRepository.deleteByUserId(userId);
     }
 }
