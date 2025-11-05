@@ -15,7 +15,8 @@ public enum ErrorCode {
     USER_NOT_EXISTED(1005, "user not exist", HttpStatus.NOT_FOUND),
     PASSWORD_INVALID(1004, "password must be at least {min} characters", HttpStatus.BAD_REQUEST),
     UNAUTHORIZED(1007, "You do not have permission", HttpStatus.FORBIDDEN),
-    INVALID_DOB(1008, "Your age must be at least {min}", HttpStatus.BAD_REQUEST);
+    INVALID_DOB(1008, "Your age must be at least {min}", HttpStatus.BAD_REQUEST),
+    PROFILE_CREATION_FAILED(1009, "Profile create fail", HttpStatus.BAD_REQUEST);
 
     private int code;
 

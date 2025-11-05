@@ -3,6 +3,8 @@ package com.haodk.identity.service;
 import java.util.HashSet;
 import java.util.List;
 
+import com.haodk.identity.mapper.ProfileMapper;
+import com.haodk.identity.repository.httpclient.ProfileClient;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -35,7 +37,9 @@ public class UserService {
     UserRepository userRepository;
     RoleRepository roleRepository;
     UserMapper userMapper;
+    ProfileMapper profileMapper;
     PasswordEncoder passwordEncoder;
+    ProfileClient profileClient;
 
     public UserResponse createUser(UserCreationRequest request) {
         User user = userMapper.toUser(request);
@@ -45,11 +49,16 @@ public class UserService {
         roleRepository.findById(PredefinedRole.USER_ROLE).ifPresent(roles::add);
 
         user.setRoles(roles);
+        user = userRepository.save(user);
+
+        Long newUserId = user.getId();
+        var profileRequest = profileMapper.toProfileCreationRequest(request);
+        profileRequest.setUserId(newUserId);
 
         try {
-            user = userRepository.save(user);
-        } catch (DataIntegrityViolationException exception) {
-            throw new AppException(ErrorCode.USER_EXISTED);
+            profileClient.createProfile(profileRequest);
+        } catch (feign.FeignException e) {
+            throw new AppException(ErrorCode.PROFILE_CREATION_FAILED);
         }
 
         return userMapper.toUserResponse(user);
