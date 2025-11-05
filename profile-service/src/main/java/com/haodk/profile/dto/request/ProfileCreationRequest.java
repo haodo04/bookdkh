@@ -1,9 +1,6 @@
-package com.haodk.identity.dto.request;
+package com.haodk.profile.dto.request;
 
 import java.time.LocalDate;
-import java.util.List;
-
-import jakarta.validation.constraints.Size;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -13,17 +10,12 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class UserUpdateRequest {
-    String username;
-
-    @Size(min = 8, message = "PASSWORD_INVALID")
+public class ProfileCreationRequest {
+    String id;
+    Long userId;
     String password;
-
     String firstName;
-
     String lastName;
-
     LocalDate dob;
-
-    List<String> roles;
+    String city;
 }

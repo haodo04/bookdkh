@@ -1,16 +1,15 @@
 package com.haodk.identity.validator;
 
-import static java.lang.annotation.ElementType.*;
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
-
+import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
 
-@Target({FIELD})
-@Retention(RUNTIME)
+@Target({ElementType.FIELD})
+@Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = {DobValidator.class})
 public @interface DobConstraint {
     String message() default "Invalid date of birth";
