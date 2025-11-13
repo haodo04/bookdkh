@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.haodk.identity.mapper.ProfileMapper;
 import com.haodk.identity.repository.httpclient.ProfileClient;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
